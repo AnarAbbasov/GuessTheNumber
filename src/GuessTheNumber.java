@@ -21,12 +21,19 @@ public class GuessTheNumber {
         System.out.println("Well " + userName + " Take a quess.");
         String quess = myscanner.nextLine();
         int quess_counter=0;
+        String game_continue="y";
         System.out.println(guessed);
-        while (quess_counter<6) {
+        while (quess_counter<6 && game_continue.compareTo("y")==0) {
             if (guessed == Integer.valueOf(quess)) {
                 System.out.println("Good job, " + userName + " You quessed my number in " + quess_counter + " guesses!");
-                return;
-
+                System.out.println("Would you like to play again?(y or n)");
+                game_continue = myscanner.nextLine();
+                if (game_continue.compareTo("n")==0){
+                return;}
+                System.out.println("Well " + userName + " I am thinking of number between 1 and 20.");
+                System.out.println("Well " + userName + " Take a quess.");
+                guessed = rand.nextInt(20);
+                System.out.println(guessed);
             }
 
             if (guessed > Integer.valueOf(quess) ) {
