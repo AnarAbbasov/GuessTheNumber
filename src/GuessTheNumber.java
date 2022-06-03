@@ -21,12 +21,27 @@ public class GuessTheNumber {
         System.out.println("Well " + userName + " Take a quess.");
         String quess = myscanner.nextLine();
         int quess_counter=0;
-        if (guessed == Integer.valueOf(quess))
-        {
-            System.out.println("Good job, " + userName + " You quessed my number in "+quess_counter+" guesses!");
+        System.out.println(guessed);
+        while (quess_counter<6) {
+            if (guessed == Integer.valueOf(quess)) {
+                System.out.println("Good job, " + userName + " You quessed my number in " + quess_counter + " guesses!");
+                return;
 
+            }
+
+            if (guessed > Integer.valueOf(quess) ) {
+                System.out.println("Your guess is too low");
+                quess_counter++;
+                System.out.println("Take a guess");
+
+            }
+            if (guessed < Integer.valueOf(quess) ) {
+                quess_counter++;
+                System.out.println("Your guess is too high");
+                System.out.println("Take a guess");
+            }
+              quess = myscanner.nextLine();
         }
-        System.out.println("Your quess is too high");
-        System.out.println("Would you like to play again?(y or n)");
+
     }
 }
